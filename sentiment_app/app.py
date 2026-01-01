@@ -16,7 +16,7 @@ EMBEDDING_MODEL_PATH = os.path.join(MODEL_DIR, "onnx_embedding_model.onnx")
 CLASSIFIER_MODEL_PATH = os.path.join(MODEL_DIR, "onnx_classifier.onnx")
 
 class PredictRequest(BaseModel):
-    text: str
+    text: str = Field(..., min_length=1)
 
 try:
     tokenizer = Tokenizer.from_file(TOKENIZER_PATH)
