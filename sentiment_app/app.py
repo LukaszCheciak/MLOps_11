@@ -4,6 +4,7 @@ import onnxruntime as ort
 from fastapi import FastAPI
 from pydantic import BaseModel
 from tokenizers import Tokenizer
+from mangum import Mangum
 
 app = FastAPI(title="Sentiment Analysis ONNX API")
 
@@ -51,8 +52,10 @@ async def predict(request: PredictRequest):
         "text": request.text,
         "sentiment": label,
         "confidence": float(np.max(prediction_logits))
-    }
+    }    
 
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
+handler = Mangum(app)
