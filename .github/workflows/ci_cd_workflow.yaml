@@ -58,10 +58,10 @@ jobs:
         run: uv sync --group deployment --group inference
 
       - name: Download artifacts
-        run: uv run python main.py download
+        run: PYTHONPATH=.:src/scripts uv run python main.py download
 
       - name: Export models to ONNX
-        run: uv run python main.py export
+        run: PYTHONPATH=.:src/scripts uv run python main.py export
 
       - name: Login to ECR
         id: login-ecr
