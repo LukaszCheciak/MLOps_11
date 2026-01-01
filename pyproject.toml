@@ -1,0 +1,28 @@
+[project]
+name = "mlops-11"
+version = "0.1.0"
+description = "MLOps 11 project"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+integration = [
+    "numpy",
+    "pandas",
+]
+
+deployment = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+]
+
+inference = [
+    "onnxruntime",
+    "tokenizers",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

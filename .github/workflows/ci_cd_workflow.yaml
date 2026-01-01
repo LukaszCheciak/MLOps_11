@@ -1,0 +1,29 @@
+name: CI/CD workflow
+
+on: workflow_dispatch
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: mlops-lab11-repo # your ecr repository name
+  S3_BUCKET: mlops-lab11-models-lukasz-checiak # your s3 bucket name
+
+jobs:
+  integration:
+    name: checks_and_tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code repo
+        # This step checks out your repository code so the workflow can access it
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install dependencies
+        run: uv sync --only-group integration
+
+      - name: Run ruff checks
+        run: uv run ruff check .
+
+      - name: Run pytest tests
+        run: uv run pytest 
