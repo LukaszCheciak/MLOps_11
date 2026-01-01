@@ -25,7 +25,7 @@ jobs:
         run: uv run ruff check
 
       - name: Run pytest tests
-        run: uv run pytest tests
+        run: PYTHONPATH=. uv run pytest tests
 
   deployment:
     name: deploy_to_aws
