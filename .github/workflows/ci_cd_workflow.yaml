@@ -5,7 +5,7 @@ on: workflow_dispatch
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: mlops-lab11-repo 
-  S3_BUCKET: mlops-lab11-models-lukasz-checiak 
+  S3_BUCKET: mlops-lab11-models-lukasz-checiak
 
 jobs:
   integration:
@@ -30,7 +30,6 @@ jobs:
   deployment:
     name: deploy_to_aws
     needs: integration
-    if: ${{ inputs.steps == 'all' && needs.integration.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Free disk space
