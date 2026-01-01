@@ -6,7 +6,7 @@ from pathlib import Path
 class Settings:
     s3_bucket: str = "mlops-lab11-models-lukasz-checiak"
     local_model_dir: Path = Path("model")
-    sentence_transformer_dir: Path = local_model_dir / "sentence_transformer.pkl"
+    sentence_transformer_dir: Path = local_model_dir / "sentence_transformer.model"
     classifier_joblib_path: Path = local_model_dir / "classifier.joblib"
     onnx_embedding_model_path: Path = local_model_dir / "onnx" / "embedding.onnx"
     onnx_classifier_path: Path = local_model_dir / "onnx" / "classifier.onnx"
