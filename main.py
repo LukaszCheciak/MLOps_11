@@ -13,7 +13,7 @@ if __name__ == "__main__":
     if action == "download":
         download()
     elif action == "export":
-        export_classifier_to_onnx()
+        export_classifier_to_onnx(get_settings())
         export_model_to_onnx(get_settings())
     else:
         print(f"Unknown action: {action}")

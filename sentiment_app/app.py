@@ -11,9 +11,9 @@ app = FastAPI(title="Sentiment Analysis ONNX API")
 SENTIMENT_MAP = {0: "negative", 1: "positive"}
 
 MODEL_DIR = os.getenv("MODEL_DIR", "model")
-TOKENIZER_PATH = os.path.join(MODEL_DIR, "tokenizer.json")
-EMBEDDING_MODEL_PATH = os.path.join(MODEL_DIR, "onnx_embedding_model.onnx")
-CLASSIFIER_MODEL_PATH = os.path.join(MODEL_DIR, "onnx_classifier.onnx")
+TOKENIZER_PATH = os.path.join(MODEL_DIR, "onnx", "tokenizer.json")
+EMBEDDING_MODEL_PATH = os.path.join(MODEL_DIR, "onnx", "embedding.onnx")
+CLASSIFIER_MODEL_PATH = os.path.join(MODEL_DIR, "onnx", "classifier.onnx")
 
 class PredictRequest(BaseModel):
     text: str = Field(..., min_length=1)
