@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 dependencies = []
 
-[project.optional-dependencies]
+[dependency-groups]
 integration = [
     "numpy",
     "pandas",
