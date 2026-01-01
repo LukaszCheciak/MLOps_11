@@ -2,7 +2,7 @@ import os
 import numpy as np
 import onnxruntime as ort
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from tokenizers import Tokenizer
 from mangum import Mangum
 
