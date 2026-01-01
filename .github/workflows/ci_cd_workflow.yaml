@@ -4,8 +4,8 @@ on: workflow_dispatch
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: mlops-lab11-repo # your ecr repository name
-  S3_BUCKET: mlops-lab11-models-lukasz-checiak # your s3 bucket name
+  ECR_REPOSITORY: mlops-lab11-repo 
+  S3_BUCKET: mlops-lab11-models-lukasz-checiak 
 
 jobs:
   integration:
@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code repo
-        # This step checks out your repository code so the workflow can access it
         uses: actions/checkout@v4
 
       - name: Setup uv
@@ -23,7 +22,7 @@ jobs:
         run: uv sync --only-group integration
 
       - name: Run ruff checks
-        run: uv run ruff check .
+        run: ruff check
 
       - name: Run pytest tests
-        run: uv run pytest 
+        run: pytest tests 
