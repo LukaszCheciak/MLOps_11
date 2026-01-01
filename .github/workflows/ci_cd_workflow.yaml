@@ -22,7 +22,7 @@ jobs:
         run: uv sync --only-group integration
 
       - name: Run ruff checks
-        run: ruff check
+        run: ruff check .
 
       - name: Run pytest tests
         run: pytest tests 
