@@ -27,7 +27,7 @@ jobs:
       - name: Run pytest tests
         run: uv run pytest tests
 
-deployment:
+  deployment:
     name: deploy_to_aws
     needs: integration
     if: ${{ inputs.steps == 'all' && needs.integration.result == 'success' }}
